@@ -655,6 +655,8 @@ internal fun chatNoticeText(context: Context, notice: ChatNotice): String = when
     is ChatNotice.DeleteFailed -> notice.detail ?: context.getString(R.string.chat_notice_delete_failed)
     is ChatNotice.ReopenFailed -> notice.detail ?: context.getString(R.string.sessions_reopen_failed_fallback)
     is ChatNotice.CancelQueuedFailed -> notice.detail ?: context.getString(R.string.chat_notice_cancel_failed)
+    ChatNotice.RetryMessageMissing -> context.getString(R.string.chat_queued_retry_missing)
+    ChatNotice.RetryDeliveryPending -> context.getString(R.string.chat_queued_retry_pending)
     is ChatNotice.SteerFailed -> notice.detail ?: context.getString(R.string.chat_notice_steer_failed)
     is ChatNotice.PermissionRequestFailed -> notice.detail ?: context.getString(R.string.chat_notice_request_failed)
     is ChatNotice.ModelsLoadFailed -> notice.detail ?: context.getString(R.string.chat_notice_models_failed)

@@ -296,6 +296,9 @@
     <string name="chat_queued_scheduled">Scheduled · %1$s</string>
     <string name="chat_queued_steer">Steer</string>
     <string name="chat_queued_edit">Edit</string>
+    <string name="chat_queued_outcome_unknown">Delivery outcome unknown</string>
+    <string name="chat_queued_retry_missing">The message is no longer available</string>
+    <string name="chat_queued_retry_pending">The agent is still resolving this delivery</string>
     <string name="chat_picker_title">Attach</string>
     <string name="chat_picker_photos">Photo library</string>
     <string name="chat_picker_camera">Camera</string>

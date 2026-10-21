@@ -296,6 +296,9 @@
     <string name="chat_queued_scheduled">По расписанию · %1$s</string>
     <string name="chat_queued_steer">Направить</string>
     <string name="chat_queued_edit">Изменить</string>
+    <string name="chat_queued_outcome_unknown">Результат доставки неизвестен — повторите или отмените явно</string>
+    <string name="chat_queued_retry_missing">Сообщение больше недоступно</string>
+    <string name="chat_queued_retry_pending">Агент всё ещё обрабатывает эту доставку</string>
     <string name="chat_picker_title">Прикрепить</string>
     <string name="chat_picker_photos">Галерея</string>
     <string name="chat_picker_camera">Камера</string>

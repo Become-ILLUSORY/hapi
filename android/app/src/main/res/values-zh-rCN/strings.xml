@@ -303,6 +303,9 @@
     <string name="chat_queued_scheduled">定时发送 · %1$s</string>
     <string name="chat_queued_steer">插入</string>
     <string name="chat_queued_edit">编辑</string>
+    <string name="chat_queued_outcome_unknown">发送结果未知，请明确重试或取消</string>
+    <string name="chat_queued_retry_missing">消息已不存在</string>
+    <string name="chat_queued_retry_pending">代理仍在处理这条消息的发送结果</string>
     <string name="chat_picker_title">添加附件</string>
     <string name="chat_picker_photos">相册</string>
     <string name="chat_picker_camera">相机</string>
@@ -346,7 +349,7 @@
     <string name="chat_reasoning_collapsed">💭 思考 ▸</string>
     <string name="chat_not_delivered_retry">未送达 — 点按重试</string>
     <string name="chat_not_delivered">未送达</string>
-    <string name="chat_review_title">Code review</string>
+    <string name="chat_review_title">代码评审</string>
     <string name="chat_review_findings_one">1 条发现</string>
     <string name="chat_review_findings_many">%1$d 条发现</string>
 

@@ -234,6 +234,13 @@ sealed interface ChatNotice {
     data class DeleteFailed(val detail: String?) : ChatNotice
     data class ReopenFailed(val detail: String?) : ChatNotice
     data class CancelQueuedFailed(val detail: String?) : ChatNotice
+
+    /** `not-found`: the queued row vanished server-side before retry. */
+    data object RetryMessageMissing : ChatNotice
+
+    /** `retry-unavailable`: the agent still owns the in-flight delivery. */
+    data object RetryDeliveryPending : ChatNotice
+
     data class SteerFailed(val detail: String?) : ChatNotice
     data class PermissionRequestFailed(val detail: String?) : ChatNotice
     data class ModelsLoadFailed(val detail: String?) : ChatNotice
@@ -1255,9 +1262,9 @@ class ChatViewModel(
                     response.localId?.let { awaitWindowStore().markRequeued(listOf(it)) }
                 } else if (response.status == "not-found") {
                     awaitWindowStore().removeMessage(messageId)
-                    _events.tryEmit(ChatEvent.Notice(ChatNotice.CancelQueuedFailed("Message is no longer available")))
+                    _events.tryEmit(ChatEvent.Notice(ChatNotice.RetryMessageMissing))
                 } else if (response.status == "retry-unavailable") {
-                    _events.tryEmit(ChatEvent.Notice(ChatNotice.CancelQueuedFailed("Delivery is still being resolved")))
+                    _events.tryEmit(ChatEvent.Notice(ChatNotice.RetryDeliveryPending))
                 }
             } catch (error: Exception) {
                 _events.tryEmit(ChatEvent.Notice(ChatNotice.CancelQueuedFailed(error.message)))
