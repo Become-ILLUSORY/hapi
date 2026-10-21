@@ -40,7 +40,14 @@ jobs:
               with:
                   distribution: temurin
                   java-version: '21'
+            # setup-gradle restores/saves ~/.gradle (wrapper, dependency caches,
+            # build-cache-1). cache-read-only:false keeps it writable on every
+            # branch; cleanup prunes unused entries so the cache stays under the
+            # 10 GB repo limit.
             - uses: gradle/actions/setup-gradle@v4
+              with:
+                  cache-read-only: false
+                  gradle-home-cache-cleanup: true
             - name: Unit tests
               run: ./gradlew :core:protocol:test :core:data:testDebugUnitTest :app:testDebugUnitTest
             - name: Assemble signed release APK
